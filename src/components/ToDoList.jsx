@@ -2,10 +2,14 @@ import React from 'react'
 import ToDo from './ToDo'
 import '../App.css'
 
-function ToDoList() {
+function ToDoList({ todos, onDeleteToDo }) {
     return (
         <div className='todo-list'>
-            <ToDo />
+            {
+                todos && todos.map((todo) => (
+                    <ToDo key={todo.id} todo={todo} onDeleteToDo={onDeleteToDo} />
+                ))
+            }
         </div>
     )
 }

@@ -3,15 +3,21 @@ import { IoIosRemoveCircle } from "react-icons/io";
 import { MdEditSquare } from "react-icons/md";
 import '../App.css';
 
-function ToDo() {
+function ToDo({ todo, onDeleteToDo }) {
+    const { id, content } = todo;
+
+    const deleteToDo = () => {
+        onDeleteToDo(id);
+    }
+
     return (
         <div className='todo'>
             <div>
-                ilk todo
+                {content}
             </div>
             <div>
                 <MdEditSquare className='edit-icon' />
-                <IoIosRemoveCircle className='remove-icon' />
+                <IoIosRemoveCircle className='remove-icon' onClick={deleteToDo} />
             </div>
         </div>
     )
